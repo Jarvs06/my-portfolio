@@ -1,14 +1,95 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Parkinsans:wght@300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Momo+Trust+Display&family=Parkinsans:wght@300..800&display=swap');
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('./assets/fonts/SFPRODISPLAYREGULAR.OTF') format('opentype');
+}
 
+:root {
+  --primary-color: #8B0000;
+  --heading-font: "Momo Trust Display", sans-serif;
+  --body-font: "SF Pro Display", sans-serif;
+}
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {font-family: var(--body-font);}
 
 a {cursor: pointer;}
 
+p {
+    font-size: 22px;
+    line-height: 1.25;
+    margin: 10px 0 20px;
+}
 
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #8B0000, #FF6D03, #571E22);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 3s ease infinite;
+}
+
+
+section {position: relative;}
+
+h1, h2, h2 a, h3, h3 a, h4, h4 a, h5, h5 a, h6, h6 a {
+  font-family: var(--heading-font);
+  font-weight: 100;
+  line-height: 1.25;
+  margin-bottom: 10px;
+}
+h1 {font-size: 74px;}
+h2 {font-size: 45px;}
+h3 {font-size: 36px;}
+h4 {font-size: 28px;}
+h5 {font-size: 26px;}
+h5 {font-size: 22px;}
+
+
+.topTitle {
+  width: 100%;
+  display: block;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #8b0000;
+  margin-bottom: 15px;
+}
+.sectionHeading {
+  font-size: 55px;
+  text-align: center;
+}
+.description {
+  text-align: center;
+  font-size: 21px;
+  max-width: 850px;
+  margin: 0 auto 40px;
+}
+
+
+/*********************************************************************************/
 /* NAVIGATION CSS */
 #Header {
   position: absolute !important;
   width: 100%;
+  z-index: 999;
 }
 #navigationBar {
   width: 100%;
@@ -20,16 +101,16 @@ a {cursor: pointer;}
   justify-content: space-between;
   align-items: center;
   flex-wrap: nowrap;
-  background-color: #1a1a1a;
+  background-color: #f5f5f5;
   padding: 0 20px;
   border-radius: 50px;
   margin-top: 25px;
 }
 #navigationContainer #logo a {
-  font-family: "Parkinsans", sans-serif;
-  color: white;
+  font-family: var(--heading-font);
+  color: black;
   font-weight: bold;
-  font-size: 26px;
+  font-size: 25px;
   text-transform: uppercase;
   text-decoration: none;
   padding-left: 10px;
@@ -37,6 +118,7 @@ a {cursor: pointer;}
 #navigationContainer #logo a span {
   font-size: 18px;
   font-style: italic;
+  margin-left: -5px;
 }
 #navigationMenu ul {
   display: flex;
@@ -46,23 +128,143 @@ a {cursor: pointer;}
 }
 #navigationMenu ul li {list-style: none;}
 #navigationMenu ul li a {
-  color: white;
-  font-family: "Parkinsans", sans-serif;
-  font-size: 16px;
-  font-weight: bold;
+  color: black;
+  font-family: var(--heading-font);
+  font-size: 15px;
   text-decoration: none;
   text-transform: uppercase;
   line-height: 68px;
 }
 #navigationMenu ul li:last-child a {
-  background-color: white;
-  color: black;
+  background-color: var(--primary-color);
+  color: white;
   padding: 7px 20px;
   border-radius: 50px;
 }
 
 
+
+/*********************************************************************************/
 /* HOME BANNER */
-#bannerContainer {
-  padding: 100px 20px;
+#homeBanner {
+  width: 100%;
+  height: 100%;
+  --color: #E1E1E1;
+  background-color: #fff;
+  background-image: linear-gradient(to right, #e2e8f0 1px, transparent 1px), linear-gradient(to bottom, #e2e8f0 1px, transparent 1px);
+  background-size: 70px 70px;
+  position: sticky;
+  top: 0;
 }
+#homeBanner::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to bottom, transparent, white);
+  pointer-events: none;
+}
+#bannerContainer {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  padding: 0 20px;
+  max-width: 1400px;
+  margin: auto;
+  gap: 50px;
+  height: 90vh;
+}
+
+#bannerContent {
+    width: 65%;
+    margin-top: 1%;
+    position: relative;
+    z-index: 1;
+}
+#bannerContent h1 {margin: 0;}
+#bannerContent .bannerSubHeading {
+    font-size: 38px;
+    line-height: 1.1;
+    font-weight: bold;
+    max-width: 600px;
+    display: block;
+}
+#bannerContent p {
+    max-width: 650px;
+    margin-top: 25px;
+}
+
+
+.heroImageWrapper {
+  width: 50%;
+  height: 90vh;
+  position: relative;
+}
+.heroImageWrapper::before {
+  content: "";
+  width: 100%;
+  max-width: 100%;
+  height: 40%;
+  display: block;
+  margin: auto;
+  position: absolute;
+  background-color: var(--primary-color);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+}
+.heroImageWrapper::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 70%;
+  background: linear-gradient(to bottom, transparent, white);
+  pointer-events: none;
+}
+.heroImageWrapper img {
+    width: 100%;
+    max-width: 100%;
+    height: 720px;
+    object-fit: contain;
+    position: absolute;
+    bottom: 0;
+    pointer-events: none;
+}
+
+
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 30px;
+  margin-top: 35px;
+}
+
+
+
+
+/*********************************************************************************/
+/* ABOUT DESIGN */
+#homeAbout {
+  width: 100%;
+  padding: 100px 20px;
+  background-color: white;
+}
+#aboutContainer {
+  width: 100%;
+  max-width: 1360px;
+  margin: auto;
+  background-color: #f9f9f9;
+  border-radius: 40px;
+  padding: 60px;
+}
+
+
+
+
