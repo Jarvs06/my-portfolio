@@ -162,6 +162,7 @@ const ContactSection = memo(() => (
 ));
 ContactSection.displayName = 'ContactSection';
 
+
 // Main Component
 function Home() {
   return (
