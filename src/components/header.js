@@ -11,7 +11,7 @@ function Header() {
                             <li><Link to="homeBanner" smooth={true} duration={500}>Home</Link></li>
                             <li><Link to="homeAbout" smooth={true} duration={500}>About</Link></li>
                             <li><Link to="homeProjects" smooth={true} duration={500}>Projects</Link></li>
-                            <li><Link to="homeSkills" smooth={true} duration={500}>Skills</Link></li>
+                            <li><Link to="homeProcess" smooth={true} duration={500}>Process</Link></li>
                             <li><Link to="homeContact" smooth={true} duration={500}>Let's Talk</Link></li>
                         </ul>
                     </div>
